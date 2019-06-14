@@ -1,6 +1,9 @@
 
 var express = require('express');
+
 var app = express();
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
@@ -8,7 +11,12 @@ var server = app.listen(app.get('port'), function() {
 });
 
 app.get('/', (req, res) => {
-	// Display a test message
-	res.send(req)
+
+	var a = req.param('validationToken')
+	if(a!=null)
+		res.send(a)
+	else
+		res.send("Hello World!")
 })
+
 
