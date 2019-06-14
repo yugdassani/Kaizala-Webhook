@@ -9,6 +9,6 @@ var server = app.listen(app.get('port'), function() {
 
 app.get('/', (req, res) => {
 	// Display a test message
-	res.send('queries')
+	res.send(req)
 })
 
