@@ -1,5 +1,6 @@
 
 var express = require('express');
+const fetch = require('node-fetch');
 
 var app = express();
 app.use(express.json())
@@ -17,6 +18,15 @@ app.get('/', (req, res) => {
 		res.send(a)
 	else
 		res.send("Hello World!")
+})
+
+fetch('/',{
+	method:'POST',
+
+})
+
+app.post('/', (req,res) => {
+	console.log(req.body)
 })
 
 
