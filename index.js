@@ -21,9 +21,27 @@ app.get('/', (req, res) => {
 		res.send("Hello World!")
 })
 
+app.get('/chat', (req,res) => {
+	var a = req.param('validationToken')
+	if(a!=null)
+		res.send(a)
+	else
+		res.send("Hello Bots!")
+})
+
 fetch('/',{
+	method:'POST'
+})
+
+fetch('/chat',{
 	method:'POST',
 
+})
+
+app.post('/chat', (req,res) => {
+	console.log(req.body)
+	axios.post("https://prod-73.westus.logic.azure.com:443/workflows/15c33a21e9b34bcd9ede1af1a9df2a73/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xJLkc6pSow8BZHUfj9P44lZm2lbYHMwb9jhvfTVYzI8",
+		req.body)
 })
 
 app.post('/', (req,res) => {
