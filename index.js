@@ -37,16 +37,16 @@ app.get('/chatbot', (req,res) => {
 		res.send("Hello ChatBots!")
 })
 
-fetch('/',{
+fetch('https://kaizala-wh.herokuapp.com/',{
 	method:'POST'
 })
 
-fetch('/chat',{
+fetch('https://kaizala-wh.herokuapp.com/chat',{
 	method:'POST'
 
 })
 
-fetch('/chatbot',{
+fetch('https://kaizala-wh.herokuapp.com/chatbot',{
 	method: 'POST'
 })
 
