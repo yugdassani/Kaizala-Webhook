@@ -54,14 +54,14 @@ app.post('/chatbot', (req,res) => {
 	console.log(req.body)
 	axios.post("https://prod-97.westus.logic.azure.com:443/workflows/0c670b400634420a8d62c99dda5a6d86/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vvaD3rV1Z5OJnNYv3h3ztQHVALH7hV0V6K5zoTIbT-A",
 		req.body)
-	res.send("Webhook Active - Message Redirection")
+	//res.send("Webhook Active - Message Redirection")
 })
 
 app.post('/chat', (req,res) => {
 	console.log(req.body)
 	axios.post("https://prod-73.westus.logic.azure.com:443/workflows/15c33a21e9b34bcd9ede1af1a9df2a73/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xJLkc6pSow8BZHUfj9P44lZm2lbYHMwb9jhvfTVYzI8",
 		req.body)
-	res.send("Webhook Active - Message Redirection")
+	//res.send("Webhook Active - Message Redirection")
 
 })
 
@@ -69,7 +69,7 @@ app.post('/', (req,res) => {
 	console.log(req.body)
 	axios.post("https://prod-87.westus.logic.azure.com:443/workflows/68e2aa63d92b489782f35b4972a7be4a/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Zdh5oGVMFBAzQAy6ly7I9DB4QTWqeXffpSALu4iQHeE",
 		req.body)
-	res.send("Webhook Active - Message Redirection")
+	//res.send("Webhook Active - Message Redirection")
 
 })
 
