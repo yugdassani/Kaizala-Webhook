@@ -37,18 +37,6 @@ app.get('/chatbot', (req,res) => {
 		res.send("Hello ChatBots!")
 })
 
-fetch('/',{
-	method:'POST'
-})
-
-fetch('/chat',{
-	method:'POST'
-
-})
-
-fetch('/chatbot',{
-	method:'POST'
-})
 
 app.post('/chatbot', (req,res) => {
 	console.log(req.body)
