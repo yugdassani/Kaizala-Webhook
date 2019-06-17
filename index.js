@@ -29,13 +29,31 @@ app.get('/chat', (req,res) => {
 		res.send("Hello Bots!")
 })
 
+app.get('/chatbot', (req,res) => {
+	var a = req.param('validationToken')
+	if(a!=null)
+		res.send(a)
+	else
+		res.send("Hello ChatBots!")
+})
+
 fetch('/',{
 	method:'POST'
 })
 
 fetch('/chat',{
-	method:'POST',
+	method:'POST'
 
+})
+
+fetch('/chatbot',{
+	method: 'POST'
+})
+
+app.post('/chatbot', (req,res) => {
+	console.log(req.body)
+	axios.post("https://prod-97.westus.logic.azure.com:443/workflows/0c670b400634420a8d62c99dda5a6d86/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vvaD3rV1Z5OJnNYv3h3ztQHVALH7hV0V6K5zoTIbT-A",
+		req.body)
 })
 
 app.post('/chat', (req,res) => {
