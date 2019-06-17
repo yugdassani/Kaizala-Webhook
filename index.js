@@ -47,7 +47,7 @@ fetch('/chat',{
 })
 
 fetch('/chatbot',{
-	method: 'POST'
+	method:'POST'
 })
 
 app.post('/chatbot', (req,res) => {
