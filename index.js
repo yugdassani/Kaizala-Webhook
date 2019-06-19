@@ -12,8 +12,8 @@ var server = app.listen(app.get('port'), function() {
   console.log('Listening on port %d', server.address().port);
 });
 
+/** For both action wrappers */
 app.get('/', (req, res) => {
-
 	var a = req.param('validationToken')
 	if(a!=null)
 		res.send(a)
@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
 		res.send("Hello World!")
 })
 
+/** This is for the Barclays solution */
 app.get('/chat', (req,res) => {
 	var a = req.param('validationToken')
 	if(a!=null)
@@ -29,12 +30,25 @@ app.get('/chat', (req,res) => {
 		res.send("Hello Bots!")
 })
 
+/** This is for employee helpdesk */
 app.get('/chatbot', (req,res) => {
 	var a = req.param('validationToken')
 	if(a!=null)
 		res.send(a)
 	else
 		res.send("Hello ChatBots!")
+})
+
+app.get('/testAction', (req,res) => {
+	var a = req.param('validationToken')
+	if(a!=null)
+		res.send(a)
+	else
+		res.send("Hello testAction!")
+})
+
+app.post('/testAction', (req,res) => {
+	console.log(req.body)
 })
 
 
