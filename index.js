@@ -13,7 +13,7 @@ var server = app.listen(app.get('port'), function() {
 });
 
 /** For both action wrappers */
-app.get('/', (req, res) => {
+app.get('https://kaizala-wh.herokuapp.com/', (req, res) => {
 	var a = req.param('validationToken')
 	if(a!=null)
 		res.send(a)
@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 })
 
 /** This is for the Barclays solution */
-app.get('/chat', (req,res) => {
+app.get('https://kaizala-wh.herokuapp.com/chat', (req,res) => {
 	var a = req.param('validationToken')
 	if(a!=null)
 		res.send(a)
@@ -31,7 +31,7 @@ app.get('/chat', (req,res) => {
 })
 
 /** This is for employee helpdesk */
-app.get('/chatbot', (req,res) => {
+app.get('https://kaizala-wh.herokuapp.com/chatbot', (req,res) => {
 	var a = req.param('validationToken')
 	if(a!=null)
 		res.send(a)
@@ -40,7 +40,7 @@ app.get('/chatbot', (req,res) => {
 })
 
 
-app.get('/vendor', (req,res) => {
+app.get('https://kaizala-wh.herokuapp.com/vendor', (req,res) => {
 	var a = req.param('validationToken')
 	if(a!=null)
 		res.send(a)
@@ -48,7 +48,7 @@ app.get('/vendor', (req,res) => {
 		res.send("Hello vendor!")
 })
 
-app.post('/vendor', (req,res) => {
+app.post('https://kaizala-wh.herokuapp.com/vendor', (req,res) => {
 	console.log(req.body)
 	axios.post("https://prod-09.westus.logic.azure.com:443/workflows/54ca2e2b8366438ca030f2b96f18d8ad/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1VYQO_WVZqOGiKDesKx8ckSjJssGkXlTfg2rbGnFCjA",
 		req.body)
@@ -56,15 +56,14 @@ app.post('/vendor', (req,res) => {
 })
 
 
-
-app.post('/chatbot', (req,res) => {
+app.post('https://kaizala-wh.herokuapp.com/chatbot', (req,res) => {
 	console.log(req.body)
 	axios.post("https://prod-97.westus.logic.azure.com:443/workflows/0c670b400634420a8d62c99dda5a6d86/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=vvaD3rV1Z5OJnNYv3h3ztQHVALH7hV0V6K5zoTIbT-A",
 		req.body)
 	res.send("Webhook Active - Message Redirection")
 })
 
-app.post('/chat', (req,res) => {
+app.post('https://kaizala-wh.herokuapp.com/chat', (req,res) => {
 	console.log(req.body)
 	axios.post("https://prod-73.westus.logic.azure.com:443/workflows/15c33a21e9b34bcd9ede1af1a9df2a73/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xJLkc6pSow8BZHUfj9P44lZm2lbYHMwb9jhvfTVYzI8",
 		req.body)
@@ -72,7 +71,7 @@ app.post('/chat', (req,res) => {
 
 })
 
-app.post('/', (req,res) => {
+app.post('https://kaizala-wh.herokuapp.com/', (req,res) => {
 	console.log(req.body)
 	axios.post("https://prod-87.westus.logic.azure.com:443/workflows/68e2aa63d92b489782f35b4972a7be4a/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Zdh5oGVMFBAzQAy6ly7I9DB4QTWqeXffpSALu4iQHeE",
 		req.body)
