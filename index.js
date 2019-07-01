@@ -47,6 +47,20 @@ app.get('/testAction', (req,res) => {
 		res.send("Hello testAction!")
 })
 
+app.get('/vendor', (req,res) => {
+	var a = req.param('validationToken')
+	if(a!=null)
+		res.send(a)
+	else
+		res.send("Hello vendor!")
+})
+
+app.post('/vendor', (req,res) => {
+	console.log(req.body)
+	axios.post("https://prod-09.westus.logic.azure.com:443/workflows/54ca2e2b8366438ca030f2b96f18d8ad/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1VYQO_WVZqOGiKDesKx8ckSjJssGkXlTfg2rbGnFCjA",
+		req.body)
+})
+
 app.post('/testAction', (req,res) => {
 	console.log(req.body)
 })
