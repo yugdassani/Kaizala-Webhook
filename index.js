@@ -39,7 +39,7 @@ app.get('/chatbot', (req,res) => {
 		res.send("Hello ChatBots!")
 })
 
-app.get('vendor', (req,res) => {
+app.get('/vendor', (req,res) => {
 	var a = req.param('validationToken')
 	if(a!=null)
 		res.send(a)
