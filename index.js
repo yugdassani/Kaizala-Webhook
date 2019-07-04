@@ -47,6 +47,21 @@ app.get('/vendor', (req,res) => {
 		res.send("Hello Vendors!")
 })
 
+app.get('/ticket', (req,res) => {
+	var a = req.param('validationToken')
+	if(a!=null)
+		res.send(a)
+	else
+		res.send("Hello Vendors!")
+})
+
+app.post('/ticket', (req,res) => {
+	console.log(req.body)
+	axios.post("https://prod-47.westus.logic.azure.com:443/workflows/56bf49c659fc48ada33bafbdba42294c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=jlZP7PZbsbszO_0f1cr8aob-R8pixSwPf3ZuPHD5mTs",
+		req.body)
+	res.send("Vendor webhook")
+})
+
 app.post('/vendor', (req,res) => {
 	console.log(req.body)
 	axios.post("https://prod-09.westus.logic.azure.com:443/workflows/54ca2e2b8366438ca030f2b96f18d8ad/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1VYQO_WVZqOGiKDesKx8ckSjJssGkXlTfg2rbGnFCjA",
