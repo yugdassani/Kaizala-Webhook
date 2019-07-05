@@ -52,14 +52,29 @@ app.get('/ticket', (req,res) => {
 	if(a!=null)
 		res.send(a)
 	else
-		res.send("Hello Vendors!")
+		res.send("Hello Actions!")
+})
+
+app.get('/onboard', (req,res) => {
+	var a = req.param('validationToken')
+	if(a!=null)
+		res.send(a)
+	else
+		res.send("Hello New Vendors!")
+})
+
+app.post('/onboard', (req,res) => {
+	console.log(req.body)
+	axios.post("https://prod-09.westus.logic.azure.com:443/workflows/4de11ba879dd4359804fec0f9b15bc4e/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=9_Fq3t9OTHYS8djGW9CTNbfsrcaubPcnXFuGUqDeWRE",
+		req.body)
+	res.send("Onboarding Webhook")
 })
 
 app.post('/ticket', (req,res) => {
 	console.log(req.body)
 	axios.post("https://prod-47.westus.logic.azure.com:443/workflows/56bf49c659fc48ada33bafbdba42294c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=jlZP7PZbsbszO_0f1cr8aob-R8pixSwPf3ZuPHD5mTs",
 		req.body)
-	res.send("Vendor webhook")
+	res.send("Ticketing Webhook")
 })
 
 app.post('/vendor', (req,res) => {
